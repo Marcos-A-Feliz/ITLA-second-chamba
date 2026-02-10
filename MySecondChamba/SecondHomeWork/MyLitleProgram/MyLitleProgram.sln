@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLitleProgram", "MyLitleProgram.csproj", "{9B986A93-B34D-4B04-A524-7061D468AB7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		AppDbContext.cs = AppDbContext.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{9FD31469-4C0B-49CD-BB0B-16CAA3EBCF42}"
+	ProjectSection(SolutionItems) = preProject
+		Author.cs = Author.cs
+		Post.cs = Post.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{889D6312-FDCA-46B7-AAF0-76C1A028DAD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dtos", "Dtos", "{B3BF2840-AD8C-49A5-8040-40ED25F04281}"
+	ProjectSection(SolutionItems) = preProject
+		AuthorDto.cs = AuthorDto.cs
+		CreateAuthorDto.cs = CreateAuthorDto.cs
+		CreatePostDto.cs = CreatePostDto.cs
+		DeletePostDto.cs = DeletePostDto.cs
+		PostDto.cs = PostDto.cs
+		UpdateAuthorDto.cs = UpdateAuthorDto.cs
+		UpdatePostDto.cs = UpdatePostDto.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B986A93-B34D-4B04-A524-7061D468AB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B986A93-B34D-4B04-A524-7061D468AB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B986A93-B34D-4B04-A524-7061D468AB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B986A93-B34D-4B04-A524-7061D468AB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FD31469-4C0B-49CD-BB0B-16CAA3EBCF42} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B3BF2840-AD8C-49A5-8040-40ED25F04281} = {889D6312-FDCA-46B7-AAF0-76C1A028DAD9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {997CB8B9-0B66-438C-999E-581CDB3420D0}
+	EndGlobalSection
+EndGlobal
