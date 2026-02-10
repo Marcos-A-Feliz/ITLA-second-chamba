@@ -17,13 +17,11 @@ namespace MyLittleProgram.Controllers
             _context = context;
         }
 
-        // GET: api/Authors
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthors()
         {
             var authors = await _context.Authors.ToListAsync();
 
-            // Mapear Entity → DTO
             var authorDtos = authors.Select(a => new AuthorDto
             {
                 Id = a.Id,
@@ -34,7 +32,6 @@ namespace MyLittleProgram.Controllers
             return authorDtos;
         }
 
-        // GET: api/Authors/5
         [HttpGet("{id}")]
         public async Task<ActionResult<AuthorDto>> GetAuthor(int id)
         {
@@ -45,7 +42,6 @@ namespace MyLittleProgram.Controllers
                 return NotFound();
             }
 
-            // Mapear Entity → DTO
             var authorDto = new AuthorDto
             {
                 Id = author.Id,
@@ -56,11 +52,9 @@ namespace MyLittleProgram.Controllers
             return authorDto;
         }
 
-        // POST: api/Authors
         [HttpPost]
         public async Task<ActionResult<AuthorDto>> PostAuthor(CreateAuthorDto createDto)
         {
-            // Mapear DTO → Entity
             var author = new Author
             {
                 Name = createDto.Name,
@@ -70,7 +64,6 @@ namespace MyLittleProgram.Controllers
             _context.Authors.Add(author);
             await _context.SaveChangesAsync();
 
-            // Mapear Entity → DTO para respuesta
             var authorDto = new AuthorDto
             {
                 Id = author.Id,
@@ -81,7 +74,6 @@ namespace MyLittleProgram.Controllers
             return CreatedAtAction(nameof(GetAuthor), new { id = author.Id }, authorDto);
         }
 
-        // PUT: api/Authors/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAuthor(int id, UpdateAuthorDto updateDto)
         {
@@ -91,7 +83,6 @@ namespace MyLittleProgram.Controllers
                 return NotFound();
             }
 
-            // Actualizar solo los campos del DTO
             author.Name = updateDto.Name;
             author.Email = updateDto.Email;
 
@@ -114,7 +105,6 @@ namespace MyLittleProgram.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Authors/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {

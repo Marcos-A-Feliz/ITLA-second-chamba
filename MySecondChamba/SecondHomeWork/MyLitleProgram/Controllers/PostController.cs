@@ -17,7 +17,6 @@ namespace MyLittleProgram.Controllers
             _context = context;
         }
 
-        // GET: api/Posts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PostDto>>> GetPosts()
         {
@@ -35,7 +34,6 @@ namespace MyLittleProgram.Controllers
             return postDtos;
         }
 
-        // GET: api/Posts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PostDto>> GetPost(int id)
         {
@@ -58,11 +56,9 @@ namespace MyLittleProgram.Controllers
             return postDto;
         }
 
-        // POST: api/Posts
         [HttpPost]
         public async Task<ActionResult<PostDto>> PostPost(CreatePostDto createDto)
         {
-            // Verificar que el autor existe
             var authorExists = await _context.Authors.AnyAsync(a => a.Id == createDto.AuthorId);
             if (!authorExists)
             {
@@ -92,7 +88,6 @@ namespace MyLittleProgram.Controllers
             return CreatedAtAction(nameof(GetPost), new { id = post.Id }, postDto);
         }
 
-        // PUT: api/Posts/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPost(int id, UpdatePostDto updateDto)
         {
@@ -102,7 +97,6 @@ namespace MyLittleProgram.Controllers
                 return NotFound();
             }
 
-            // Verificar nuevo autor si cambió
             if (post.AuthorId != updateDto.AuthorId)
             {
                 var authorExists = await _context.Authors.AnyAsync(a => a.Id == updateDto.AuthorId);
@@ -112,12 +106,10 @@ namespace MyLittleProgram.Controllers
                 }
             }
 
-            // Actualizar campos
             post.Title = updateDto.Title;
             post.Content = updateDto.Content;
             post.AuthorId = updateDto.AuthorId;
 
-            // Actualizar fecha si se proporciona
             if (updateDto.CreatedDate.HasValue)
             {
                 post.CreatedDate = updateDto.CreatedDate.Value;
@@ -142,7 +134,6 @@ namespace MyLittleProgram.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Posts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePost(int id, [FromBody] DeletePostDto? deleteDto = null)
         {
@@ -152,7 +143,6 @@ namespace MyLittleProgram.Controllers
                 return NotFound();
             }
 
-            // Validación con DTO (opcional)
             if (deleteDto != null)
             {
                 if (!deleteDto.ConfirmDelete)
@@ -160,7 +150,6 @@ namespace MyLittleProgram.Controllers
                     return BadRequest("Debe confirmar la eliminación estableciendo ConfirmDelete en true");
                 }
 
-                // Registrar razón si se proporciona
                 if (!string.IsNullOrEmpty(deleteDto.Reason))
                 {
                     Console.WriteLine($"Post {id} eliminado. Razón: {deleteDto.Reason}");
@@ -173,7 +162,6 @@ namespace MyLittleProgram.Controllers
             return NoContent();
         }
 
-        // GET: api/Posts/author/5
         [HttpGet("author/{authorId}")]
         public async Task<ActionResult<IEnumerable<PostDto>>> GetPostsByAuthor(int authorId)
         {
