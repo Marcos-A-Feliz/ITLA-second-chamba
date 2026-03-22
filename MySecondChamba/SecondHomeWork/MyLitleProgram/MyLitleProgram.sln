@@ -22,6 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dtos", "Dtos", "{B3BF2840-A
 	ProjectSection(SolutionItems) = preProject
 		AuthorDto.cs = AuthorDto.cs
 		CreateAuthorDto.cs = CreateAuthorDto.cs
+		CreatePostDto.cs = CreatePostDto.cs
+		DeletePostDto.cs = DeletePostDto.cs
+		PostDto.cs = PostDto.cs
 		UpdateAuthorDto.cs = UpdateAuthorDto.cs
 		UpdatePostDto.cs = UpdatePostDto.cs
 	EndProjectSection
