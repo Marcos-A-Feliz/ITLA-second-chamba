@@ -1,6 +1,0 @@
-@MyLitleProgram_HostAddress = http://localhost:5072
-
-GET {{MyLitleProgram_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
